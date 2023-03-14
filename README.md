@@ -1,46 +1,25 @@
-import 'package:english_words/english_words.dart';
-import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+name: namer_app
+description: A new Flutter project.
 
-void main() {
-  runApp(MyApp());
-}
+publish_to:git 
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+version: 0.0.1+3
 
-  @override
-  Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => MyAppState(),
-      child: MaterialApp(
-        title: 'Namer App',
-        theme: ThemeData(
-          useMaterial3: true,
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepOrange),
-        ),
-        home: MyHomePage(),
-      ),
-    );
-  }
-}
+environment:
+  sdk: '>=2.18.4 <3.0.0'
 
-class MyAppState extends ChangeNotifier {
-  var current = WordPair.random();
-}
+dependencies:
+  flutter:
+    sdk: flutter
 
-class MyHomePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    var appState = context.watch<MyAppState>();
+  english_words: ^4.6.9
+  provider: ^6.0.0
 
-    return Scaffold(
-      body: Column(
-        children: [
-          Text('A random idea:'),
-          Text(appState.current.asLowerCase),
-        ],
-      ),
-    );
-  }
-}
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^2.0.9
+
+flutter:
+  uses-material-design: true
